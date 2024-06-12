@@ -1,7 +1,20 @@
-import { Inter } from "next/font/google";
-import "./globals.css";
+// src/app/layout.js
+import React from 'react';
+import dynamic from 'next/dynamic';
+import { Layout, Menu } from 'antd';
+import {
+  UserOutlined,
+  VideoCameraOutlined,
+  UploadOutlined,
+} from '@ant-design/icons';
 
-const inter = Inter({ subsets: ["latin"] });
+// import globals.css
+import './globals.css';
+import './page.module.css';
+
+
+// Dynamically import ClientLayout with SSR disabled
+const ClientLayout = dynamic(() => import('./components/MainLayout/ClientLayout'), { ssr: false });
 
 export const metadata = {
   title: "Create Next App",
@@ -11,7 +24,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body>
+        <ClientLayout>
+          {children}
+        </ClientLayout>
+      </body>
     </html>
+
+
   );
 }
