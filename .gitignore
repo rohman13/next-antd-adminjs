@@ -34,3 +34,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# service-account
+mantul-57898-firebase-adminsdk-t6wey-e444f4340a.json
